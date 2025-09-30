@@ -23,7 +23,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <Link to="/" className="text-2xl font-bold text-blue-900">
-            Mir's Global Solutions
+            MIRS Global Solutions
           </Link>
 
           {/* Desktop Navigation */}
