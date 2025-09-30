@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global page padding for better content spacing */
+.page-container {
+  padding-left: 120px;
+  padding-right: 120px;
+}
+
+/* Responsive padding for smaller screens */
+@media (max-width: 1024px) {
+  .page-container {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
