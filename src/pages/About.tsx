@@ -15,7 +15,7 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-6xl font-bold mb-6"
           >
-            About MIRS Global Solutions
+            About Mir's Global Solutions
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 50 }}
@@ -41,7 +41,7 @@ const About = () => {
                 Who We Are
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed text-lg">
-                MIRS Global Solutions focuses on being the pioneer in information technology-enabled services. 
+                Mir's Global Solutions focuses on being the pioneer in information technology-enabled services. 
                 As a service provider, we provide high-quality project solutions through exceptional content 
                 solutions and technology-enabled transformation.
               </p>
@@ -223,7 +223,7 @@ const About = () => {
               Ready to Get Started?
             </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Join the growing number of satisfied clients who trust MIRS Global Solutions 
+              Join the growing number of satisfied clients who trust Mir's Global Solutions 
               for their IT-enabled service needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

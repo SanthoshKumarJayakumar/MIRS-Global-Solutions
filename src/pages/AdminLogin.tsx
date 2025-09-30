@@ -52,7 +52,7 @@ const AdminLogin = () => {
             <Lock className="text-blue-600" size={32} />
           </div>
           <h2 className="text-2xl font-bold text-gray-800">Admin Login</h2>
-          <p className="text-gray-600 mt-2">MIRS Global Solutions</p>
+          <p className="text-gray-600 mt-2">Mir's Global Solutions</p>
         </div>
 
         {error && (

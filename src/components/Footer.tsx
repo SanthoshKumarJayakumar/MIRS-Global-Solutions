@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">MIRS Global Solutions</h3>
+            <h3 className="text-xl font-bold mb-4">Mir's Global Solutions</h3>
             <p className="text-gray-300 mb-4 leading-relaxed">
               Pioneer in information technology-enabled services, providing high-quality project solutions since 2022.
             </p>
@@ -92,7 +92,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-gray-300">
-            &copy; 2024 MIRS Global Solutions. All rights reserved. | Proprietor: S. Iniya
+            &copy; 2024 Mir's Global Solutions. All rights reserved. | Proprietor: S. Iniya
           </p>
         </div>
       </div>

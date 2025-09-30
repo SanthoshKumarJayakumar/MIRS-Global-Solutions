@@ -29,7 +29,7 @@ const Home = () => {
       name: 'Rajesh Kumar',
       company: 'Tech Solutions Pvt Ltd',
       rating: 5,
-      review: 'MIRS Global Solutions delivered exceptional data processing services. Their attention to detail and timely delivery exceeded our expectations.',
+      review: 'Mir\'s Global Solutions delivered exceptional data processing services. Their attention to detail and timely delivery exceeded our expectations.',
     },
     {
       name: 'Priya Sharma',
@@ -60,10 +60,10 @@ const Home = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-                About MIRS Global Solutions
+                About Mir's Global Solutions
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                MIRS Global Solutions focuses on being the pioneer in information technology-enabled services. 
+                Mir's Global Solutions focuses on being the pioneer in information technology-enabled services. 
                 As a service provider, we provide high-quality project solutions through exceptional content 
                 solutions and technology-enabled transformation.
               </p>
@@ -88,7 +88,7 @@ const Home = () => {
             >
               <img
                 src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="MIRS Global Solutions Team"
+                alt="Mir's Global Solutions Team"
                 className="rounded-lg shadow-2xl w-full h-96 object-cover"
               />
               <div className="absolute -bottom-6 -right-6 bg-blue-600 text-white p-6 rounded-lg shadow-lg">
@@ -159,7 +159,7 @@ const Home = () => {
               Benefits & Features
             </h2>
             <p className="text-blue-200 max-w-2xl mx-auto">
-              Why choose MIRS Global Solutions for your business needs
+              Why choose Mir's Global Solutions for your business needs
             </p>
           </motion.div>
 
@@ -215,7 +215,7 @@ const Home = () => {
               </div>
               
               <div className="bg-blue-50 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Why Choose MIRS?</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">Why Choose Mir's?</h3>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="text-blue-600" size={20} />

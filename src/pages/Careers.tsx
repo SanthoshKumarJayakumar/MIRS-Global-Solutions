@@ -344,7 +344,7 @@ const Careers = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-blue-200 max-w-3xl mx-auto"
           >
-            Build your career with MIRS Global Solutions and be part of our growing success story
+            Build your career with Mir's Global Solutions and be part of our growing success story
           </motion.p>
         </div>
       </section>
@@ -705,7 +705,7 @@ const Careers = () => {
               { step: '01', title: 'Apply Online', description: 'Submit your application through our website' },
               { step: '02', title: 'Initial Screening', description: 'We review your application and qualifications' },
               { step: '03', title: 'Interview', description: 'Interview with our hiring team' },
-              { step: '04', title: 'Join Our Team', description: 'Welcome to MIRS Global Solutions!' }
+              { step: '04', title: 'Join Our Team', description: 'Welcome to Mir\'s Global Solutions!' }
             ].map((process, index) => (
               <motion.div
                 key={process.step}
