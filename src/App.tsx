@@ -59,21 +59,82 @@ function App() {
                   </Suspense>
                 </ProtectedRoute>
               } />
-              <Route path="/*" element={
+              <Route path="/" element={
                 <>
                   <TopBar />
                   <Navbar />
                   <Suspense fallback={<LoadingSpinner fullScreen text="Loading page..." />}>
-                    <Routes>
-                      <Route path="/" element={<Home />} />
-                      <Route path="/about" element={<About />} />
-                      <Route path="/services" element={<Services />} />
-                      <Route path="/blog" element={<Blog />} />
-                      <Route path="/blog/:id" element={<BlogPost />} />
-                      <Route path="/careers" element={<Careers />} />
-                      <Route path="/contact" element={<Contact />} />
-                      <Route path="*" element={<NotFound />} />
-                    </Routes>
+                    <Home />
+                  </Suspense>
+                  <Footer />
+                </>
+              } />
+              <Route path="/about" element={
+                <>
+                  <TopBar />
+                  <Navbar />
+                  <Suspense fallback={<LoadingSpinner fullScreen text="Loading page..." />}>
+                    <About />
+                  </Suspense>
+                  <Footer />
+                </>
+              } />
+              <Route path="/services" element={
+                <>
+                  <TopBar />
+                  <Navbar />
+                  <Suspense fallback={<LoadingSpinner fullScreen text="Loading page..." />}>
+                    <Services />
+                  </Suspense>
+                  <Footer />
+                </>
+              } />
+              <Route path="/blog" element={
+                <>
+                  <TopBar />
+                  <Navbar />
+                  <Suspense fallback={<LoadingSpinner fullScreen text="Loading page..." />}>
+                    <Blog />
+                  </Suspense>
+                  <Footer />
+                </>
+              } />
+              <Route path="/blog/:id" element={
+                <>
+                  <TopBar />
+                  <Navbar />
+                  <Suspense fallback={<LoadingSpinner fullScreen text="Loading page..." />}>
+                    <BlogPost />
+                  </Suspense>
+                  <Footer />
+                </>
+              } />
+              <Route path="/careers" element={
+                <>
+                  <TopBar />
+                  <Navbar />
+                  <Suspense fallback={<LoadingSpinner fullScreen text="Loading page..." />}>
+                    <Careers />
+                  </Suspense>
+                  <Footer />
+                </>
+              } />
+              <Route path="/contact" element={
+                <>
+                  <TopBar />
+                  <Navbar />
+                  <Suspense fallback={<LoadingSpinner fullScreen text="Loading page..." />}>
+                    <Contact />
+                  </Suspense>
+                  <Footer />
+                </>
+              } />
+              <Route path="*" element={
+                <>
+                  <TopBar />
+                  <Navbar />
+                  <Suspense fallback={<LoadingSpinner fullScreen text="Loading page..." />}>
+                    <NotFound />
                   </Suspense>
                   <Footer />
                 </>

@@ -35,3 +35,4 @@ export const extendSession = (): boolean => {
     return false;
   }
 };
+

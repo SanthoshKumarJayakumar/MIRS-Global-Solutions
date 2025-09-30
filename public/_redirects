@@ -1,1 +1,5 @@
+# Handle client-side routing for SPA
 /*    /index.html   200
+
+# Specific redirects for admin routes
+/admin/*    /index.html   200
