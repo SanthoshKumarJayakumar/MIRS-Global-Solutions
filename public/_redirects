@@ -1,13 +1,2 @@
 # Handle client-side routing for SPA
 /*    /index.html   200
-
-# Specific redirects for admin routes
-/admin/*    /index.html   200
-
-# Handle all other routes
-/about    /index.html   200
-/services    /index.html   200
-/blog    /index.html   200
-/blog/*    /index.html   200
-/careers    /index.html   200
-/contact    /index.html   200
