@@ -71,16 +71,39 @@ A modern, responsive website for MIRS Global Solutions - a pioneer in IT-enabled
 
 ## 🚀 Deployment
 
-### Netlify
-1. Connect your repository to Netlify
-2. Set build command: `npm run build`
-3. Set publish directory: `dist`
-4. Add environment variables in Netlify dashboard
+### Vercel (Recommended)
+1. **Connect your repository to Vercel**
+2. **Add environment variables in Vercel dashboard:**
+   - `VITE_SUPABASE_URL`: Your Supabase project URL
+   - `VITE_SUPABASE_ANON_KEY`: Your Supabase anonymous key
+3. **Deploy automatically on push**
+4. **Configure custom domain** (if needed):
+   - Add your domain in Vercel dashboard
+   - Update DNS records as instructed
 
-### Vercel
-1. Connect your repository to Vercel
-2. Add environment variables in Vercel dashboard
-3. Deploy automatically on push
+### Netlify
+1. **Connect your repository to Netlify**
+2. **Set build settings:**
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+3. **Add environment variables in Netlify dashboard**
+4. **Configure custom domain** (if needed)
+
+### Traditional Hosting (GoDaddy, etc.)
+1. **Build the project:**
+   ```bash
+   npm run build
+   ```
+2. **Upload all files from `dist` folder to your hosting `public_html` directory**
+3. **Configure `.htaccess` for SPA routing:**
+   ```apache
+   RewriteEngine On
+   RewriteBase /
+   RewriteRule ^index\.html$ - [L]
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteCond %{REQUEST_FILENAME} !-d
+   RewriteRule . /index.html [L]
+   ```
 
 ## 📁 Project Structure
 

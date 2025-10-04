@@ -6,11 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:client": "vite build",
-    "build:ssr": "vite build --config vite.config.ssr.ts",
     "lint": "eslint .",
     "preview": "vite preview",
-    "vercel-build": "npm run build",
     "postbuild": "node -e \"require('fs').copyFileSync('public/_redirects', 'dist/_redirects')\" && node -e \"require('fs').copyFileSync('public/_headers', 'dist/_headers')\""
   },
   "dependencies": {
@@ -18,7 +15,6 @@
     "@types/bcryptjs": "^2.4.6",
     "bcryptjs": "^3.0.2",
     "framer-motion": "^12.23.12",
-    "gh-pages": "^6.3.0",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -43,7 +39,6 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.3.0",
-    "vite": "^5.4.2",
-    "vite-plugin-ssr": "^0.4.142"
+    "vite": "^5.4.2"
   }
 }

@@ -1,8 +1,8 @@
 # MIRS Global Solutions - Deployment Guide
 
-## 🚀 Deploying to Your GoDaddy Domain
+## 🚀 Quick Deployment Options
 
-Since your application is built with **Vite + React + Supabase**, here are the best deployment options:
+Your application is built with **Vite + React + Supabase**. Here are the recommended deployment platforms:
 
 ### Option 1: Netlify (Recommended)
 1. **Build the project locally:**
