@@ -6,8 +6,8 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Enhanced HTML template with better SEO and performance
-const getHTMLTemplate = (content, title = 'Your App', description = 'Your App Description', path = '/') => {
+// Simple but effective HTML template
+const getHTMLTemplate = (title, description, path) => {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,22 +21,17 @@ const getHTMLTemplate = (content, title = 'Your App', description = 'Your App De
   <meta property="og:url" content="https://yourdomain.com${path}">
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${description}">
-  <meta property="og:image" content="https://yourdomain.com/og-image.jpg">
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://yourdomain.com${path}">
   <meta property="twitter:title" content="${title}">
   <meta property="twitter:description" content="${description}">
-  <meta property="twitter:image" content="https://yourdomain.com/og-image.jpg">
   
   <!-- Preconnect to external domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
   
   <!-- Critical CSS -->
   <style>
@@ -53,14 +48,91 @@ const getHTMLTemplate = (content, title = 'Your App', description = 'Your App De
       background-color: #ffffff;
     }
     
+    .ssr-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .ssr-header {
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .ssr-nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .ssr-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #333;
+      text-decoration: none;
+    }
+    
+    .ssr-nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    
+    .ssr-nav-links a {
+      color: #666;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .ssr-nav-links a:hover {
+      color: #333;
+    }
+    
+    .ssr-main {
+      flex: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      width: 100%;
+    }
+    
+    .ssr-content {
+      background: #fff;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .ssr-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+    
+    .ssr-description {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+    
     .ssr-loading {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      min-height: 400px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
+      border-radius: 8px;
     }
     
     .spinner {
@@ -83,45 +155,68 @@ const getHTMLTemplate = (content, title = 'Your App', description = 'Your App De
       100% { transform: rotate(360deg); }
     }
     
-    /* Hide loading when React takes over */
-    .react-loaded .ssr-loading {
+    .ssr-footer {
+      background: #f8f9fa;
+      padding: 2rem 0;
+      margin-top: 4rem;
+      text-align: center;
+      color: #666;
+    }
+    
+    /* Hide SSR content when React loads */
+    .react-loaded .ssr-container {
       display: none;
     }
     
-    /* Basic layout styles for better initial render */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
+    .react-loaded #root {
+      display: block;
     }
     
-    header {
-      background: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    
-    main {
-      min-height: calc(100vh - 200px);
-    }
-    
-    footer {
-      background: #f8f9fa;
-      padding: 40px 0;
-      margin-top: 60px;
+    #root {
+      display: none;
     }
   </style>
 </head>
 <body>
+  <!-- SSR Content (hidden when React loads) -->
+  <div class="ssr-container">
+    <header class="ssr-header">
+      <nav class="ssr-nav">
+        <a href="/" class="ssr-logo">Your App</a>
+        <ul class="ssr-nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main class="ssr-main">
+      <div class="ssr-content">
+        <h1 class="ssr-title">${title}</h1>
+        <p class="ssr-description">${description}</p>
+        <div class="ssr-loading">
+          <div class="spinner"></div>
+          <div class="loading-text">Loading ${title}...</div>
+        </div>
+      </div>
+    </main>
+    
+    <footer class="ssr-footer">
+      <p>&copy; 2024 Your App. All rights reserved.</p>
+    </footer>
+  </div>
+  
+  <!-- React App (shown when React loads) -->
   <div id="root">
     <div class="ssr-loading">
       <div class="spinner"></div>
-      <div class="loading-text">Loading ${title}...</div>
+      <div class="loading-text">Loading...</div>
     </div>
   </div>
-  ${content}
   
   <script>
     // Mark as loaded when React hydrates
@@ -135,76 +230,62 @@ const getHTMLTemplate = (content, title = 'Your App', description = 'Your App De
 </html>`;
 };
 
-// Comprehensive route metadata
+// Route metadata
 const getRouteMetadata = (path) => {
   const routes = {
     '/': {
       title: 'Home - Your App',
-      description: 'Welcome to our amazing application. Discover our services and solutions.',
-      keywords: 'home, welcome, services, solutions'
+      description: 'Welcome to our amazing application. Discover our services and solutions designed to help your business grow.'
     },
     '/about': {
       title: 'About Us - Your App',
-      description: 'Learn more about our company, mission, and the dedicated team behind our success.',
-      keywords: 'about, company, mission, team, history'
+      description: 'Learn more about our company, mission, and the dedicated team behind our success.'
     },
     '/services': {
       title: 'Our Services - Your App',
-      description: 'Discover our comprehensive range of professional services designed to meet your needs.',
-      keywords: 'services, solutions, professional, consulting'
+      description: 'Discover our comprehensive range of professional services designed to meet your specific needs.'
     },
     '/blog': {
       title: 'Blog - Your App',
-      description: 'Read our latest articles, insights, and industry news to stay informed.',
-      keywords: 'blog, articles, news, insights, industry'
+      description: 'Read our latest articles, insights, and industry news to stay informed.'
     },
     '/careers': {
       title: 'Careers - Your App',
-      description: 'Join our team and build the future with us. Explore exciting career opportunities.',
-      keywords: 'careers, jobs, employment, team, opportunities'
+      description: 'Join our team and build the future with us. Explore exciting career opportunities.'
     },
     '/contact': {
       title: 'Contact Us - Your App',
-      description: 'Get in touch with our team. We\'re here to help and answer your questions.',
-      keywords: 'contact, support, help, questions, get in touch'
+      description: 'Get in touch with our team. We\'re here to help and answer your questions.'
     },
     '/admin/login': {
       title: 'Admin Login - Your App',
-      description: 'Administrator login portal for managing your account.',
-      keywords: 'admin, login, management, portal'
+      description: 'Administrator login portal for managing your account.'
     },
     '/admin/blog': {
-      title: 'Admin Blog Management - Your App',
-      description: 'Blog management dashboard for administrators.',
-      keywords: 'admin, blog, management, dashboard'
+      title: 'Admin Blog - Your App',
+      description: 'Blog management dashboard for administrators.'
     }
   };
 
-  // Handle dynamic routes
   if (path.startsWith('/blog/') && path !== '/blog') {
-    const postId = path.split('/blog/')[1];
     return {
-      title: `Blog Post ${postId} - Your App`,
-      description: `Read this insightful blog post about ${postId}.`,
-      keywords: 'blog, post, article, insights'
+      title: 'Blog Post - Your App',
+      description: 'Read this insightful blog post.'
     };
   }
 
   return routes[path] || {
     title: 'Your App',
-    description: 'Your App Description',
-    keywords: 'app, website, services'
+    description: 'Your App Description'
   };
 };
 
-// Enhanced SSR handler with better error handling and performance
 export default async (req, res) => {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
-  // Handle preflight requests
   if (req.method === 'OPTIONS') {
     res.status(200).end();
     return;
@@ -214,74 +295,21 @@ export default async (req, res) => {
     const path = req.url;
     const metadata = getRouteMetadata(path);
     
-    // Read the built index.html file
-    const indexPath = join(__dirname, '..', 'dist', 'index.html');
-    let indexContent;
-    
-    try {
-      indexContent = readFileSync(indexPath, 'utf8');
-    } catch (error) {
-      console.warn('Could not read index.html, using fallback template');
-      // If index.html doesn't exist, create a basic template
-      indexContent = getHTMLTemplate('', metadata.title, metadata.description, path);
-    }
+    const html = getHTMLTemplate(metadata.title, metadata.description, path);
 
-    // Inject route-specific metadata
-    let html = indexContent;
-    
-    // Update title
-    html = html.replace(/<title>.*?<\/title>/, `<title>${metadata.title}</title>`);
-    
-    // Add or update meta description
-    if (html.includes('<meta name="description"')) {
-      html = html.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${metadata.description}">`);
-    } else {
-      html = html.replace('</head>', `  <meta name="description" content="${metadata.description}">\n</head>`);
-    }
-
-    // Add keywords meta tag
-    if (!html.includes('<meta name="keywords"')) {
-      html = html.replace('</head>', `  <meta name="keywords" content="${metadata.keywords}">\n</head>`);
-    }
-
-    // Add structured data for better SEO
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": metadata.title,
-      "description": metadata.description,
-      "url": `https://yourdomain.com${path}`,
-      "mainEntity": {
-        "@type": "Organization",
-        "name": "Your App",
-        "url": "https://yourdomain.com"
-      }
-    };
-
-    const structuredDataScript = `
-  <script type="application/ld+json">
-    ${JSON.stringify(structuredData, null, 2)}
-  </script>`;
-
-    if (!html.includes('application/ld+json')) {
-      html = html.replace('</head>', `${structuredDataScript}\n</head>`);
-    }
-
-    // Set content type and caching headers
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
-    res.setHeader('X-Content-Type-Options', 'nosniff');
-    res.setHeader('X-Frame-Options', 'DENY');
-    res.setHeader('X-XSS-Protection', '1; mode=block');
-    
-    // Send the HTML content
     res.status(200).send(html);
     
   } catch (error) {
     console.error('Error in SSR handler:', error);
     
-    // Fallback to basic HTML with error information
-    const fallbackHTML = getHTMLTemplate('', 'Your App', 'Your App Description', req.url);
+    const fallbackHTML = getHTMLTemplate(
+      'Your App',
+      'Your App Description',
+      req.url
+    );
+    
     res.status(200).send(fallbackHTML);
   }
 };
