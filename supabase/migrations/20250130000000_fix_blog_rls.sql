@@ -29,3 +29,4 @@ CREATE POLICY "Allow all operations on blog_posts for authenticated users"
   USING (true)
   WITH CHECK (true);
 
+

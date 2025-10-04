@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-
+//test
 // Google Analytics component
 const Analytics = () => {
   const location = useLocation();
@@ -38,6 +38,7 @@ export const loadGoogleAnalytics = (measurementId: string) => {
 };
 
 export default Analytics;
+
 
 
 

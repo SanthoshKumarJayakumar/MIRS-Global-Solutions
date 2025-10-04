@@ -22,4 +22,9 @@ export default defineConfig({
     open: true,
   },
   publicDir: 'public',
+  base: '/',
+  preview: {
+    port: 3000,
+    strictPort: true,
+  },
 });

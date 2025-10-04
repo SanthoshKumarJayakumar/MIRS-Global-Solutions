@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "vercel-build": "vite build"
+    "vercel-build": "vite build",
+    "postbuild": "node -e \"require('fs').copyFileSync('public/_redirects', 'dist/_redirects')\" && node -e \"require('fs').copyFileSync('public/_headers', 'dist/_headers')\""
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",
@@ -29,6 +30,7 @@
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "@vitejs/plugin-react-swc": "^4.1.0",
     "autoprefixer": "^10.4.18",
     "eslint": "^9.9.1",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
