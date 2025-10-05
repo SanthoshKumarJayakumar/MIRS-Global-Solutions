@@ -18,13 +18,13 @@ export default defineConfig({
     },
   },
   server: {
-    port: 3000,
+    port: 5173,
     open: true,
   },
   publicDir: 'public',
   base: '/',
   preview: {
-    port: 3000,
+    port: 5173,
     strictPort: true,
   },
 });
